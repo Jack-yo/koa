@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        element.style {
+        }
+        .notable td, .notable th {
+            border-top: 0;
+            background: -webkit-gradient(linear,0% 0,0% 100%,from(#0e7fdf),to(#69b8f0));
+        }
+        .table td, .table th {
+            padding: .55rem;
+        }
+        .table td, .table th {
+            padding: .75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+        *, ::after, ::before {
+            box-sizing: border-box;
+        }
+        user agent stylesheet
+        td {
+            display: table-cell;
+            vertical-align: inherit;
+        }
+        .notable {
+            margin-bottom: 0;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        user agent stylesheet
+        table {
+            border-collapse: separate;
+            border-spacing: 2px;
+        }
+
+        .card {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .25rem;
+        }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <div id="wea_time"><%=city%>今日天气 中央气象台 <%=update_time%>发布 (可通过实况天气接口获取)</div>
+        </div>
+        <div class="card-body" style="padding-top: 0;">
+            <div class="container" style="position: relative;">
+                <img id="wea_img" src="http://cddn.huyahaha.com/tianqiapi/skin/qq/<%=data[0].wea_img%>.png" style="position: absolute; top: 15px; right: 20px; width: 100px;">
+
+                <div style="font-size: 20px;"><span id="wea_tem" style="font-size: 72px"><%=data[0].tem%></span>&nbsp;&nbsp;<span id="wea_wea"><%=data[0].wea%></span></div>
+                <div style="padding: 0 0 10px;">
+                    <svg style="vertical-align: sub;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20">
+                        <defs>
+                            <style type="text/css"></style>
+                        </defs>
+                        <path d="M521.552239 53.492537c-252.179104 0-458.507463 206.328358-458.507463 458.507463s206.328358 458.507463 458.507463 458.507463 458.507463-206.328358 458.507462-458.507463-204.41791-458.507463-458.507462-458.507463z m0 840.597015c-210.149254 0-382.089552-171.940299-382.089552-382.089552s171.940299-382.089552 382.089552-382.089552 382.089552 171.940299 382.089552 382.089552-171.940299 382.089552-382.089552 382.089552z" fill="#043468" p-id="3146"></path>
+                        <path d="M718.328358 301.850746L280.835821 578.865672c-1.910448 1.910448-3.820896 3.820896-1.910448 5.731343 0 1.910448 1.910448 3.820896 5.731343 3.820895l160.477612 5.731344 13.373135 160.477612c0 1.910448 1.910448 3.820896 3.820895 5.731343h1.910448c1.910448 0 3.820896-1.910448 5.731343-1.910448L725.970149 311.402985c1.910448-1.910448 0-5.731343-1.910448-7.641791 0-1.910448-3.820896-1.910448-5.731343-1.910448z" fill="#043468" p-id="3147"></path>
+                    </svg>
+                    <span id="wea_speed"><%=data[0].win%> &lt;<%=data[0].win_speed%></span>&nbsp;&nbsp;&nbsp;
+                    <svg style="color:#043468; vertical-align: sub;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20">
+                        <defs>
+                            <style type="text/css"></style>
+                        </defs>
+                        <path d="M844.3 218.9h-172c-9.4 0-17-7.6-17-17s7.6-17 17-17h172c9.4 0 17 7.6 17 17s-7.6 17-17 17zM844.3 474.9h-172c-9.4 0-17-7.6-17-17s7.6-17 17-17h172c9.4 0 17 7.6 17 17s-7.6 17-17 17zM758.3 346.9h-86c-9.4 0-17-7.6-17-17s7.6-17 17-17h86c9.4 0 17 7.6 17 17s-7.6 17-17 17zM411.4 997.4c-2.7 0-5.4 0-8.1-0.1-65.3-2-127-28.4-173.9-74.4-46.8-46-74.3-107.3-77.4-172.5-2-42.6 6-83.6 23.8-121.8 15.7-33.8 39-64.3 67.5-88.5V204.8c0-92.6 75.3-167.9 167.9-167.9h0.2c92.6 0 167.9 75.3 167.9 167.9V540c58.3 49.5 91.5 121.1 91.5 197.8 0 35.7-7.1 70.3-21.2 102.9-13.6 31.4-33 59.5-57.6 83.4-24.6 23.9-53.2 42.4-85 55-30.5 12.2-62.6 18.3-95.6 18.3z m-0.2-926.5c-73.8 0-133.9 60.1-133.9 133.9v351.5l-6.4 5.1c-27.3 21.8-49.5 50-64.2 81.5-15.4 33.2-22.4 68.8-20.7 105.9 2.7 56.6 26.5 109.9 67.2 149.9s94.3 62.9 151 64.7c2.3 0.1 4.7 0.1 7 0.1 59 0 114.5-22.5 157-63.7 44.2-42.9 68.5-100.3 68.5-161.9 0-69.1-31-133.4-85.1-176.5l-6.4-5.1V204.8c0-73.8-60.1-133.9-133.9-133.9h-0.1z" fill="#043468" p-id="9300" data-spm-anchor-id="a313x.7781069.0.i22" class="selected"></path>
+                        <path d="M410.3 870.9c-74.4 0-135-60.6-135-135s60.6-135 135-135 135 60.6 135 135-60.6 135-135 135z m0-236c-55.7 0-101 45.3-101 101s45.3 101 101 101 101-45.3 101-101-45.3-101-101-101z" fill="#ffffff" p-id="9301" data-spm-anchor-id="a313x.7781069.0.i23" class="selected"></path>
+                        <path d="M410.3 634.9c-9.4 0-17-7.6-17-17v-312c0-9.4 7.6-17 17-17s17 7.6 17 17v312c0 9.4-7.6 17-17 17z" fill="#043468" p-id="9302" data-spm-anchor-id="a313x.7781069.0.i24" class="selected"></path>
+                    </svg>
+                    <span id="wea_temp"><%=data[0].tem1%>~<%=data[0].tem2%></span>&nbsp;&nbsp;&nbsp;
+                    <svg style="color:#fff; vertical-align: sub;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20">
+                        <defs>
+                            <style type="text/css"></style>
+                        </defs>
+                        <path d="M202.666667 213.333333m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z" fill="#043468" p-id="11064" data-spm-anchor-id="a313x.7781069.0.i37" class="selected"></path>
+                        <path d="M522.666667 213.333333m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z" fill="#043468" p-id="11065" data-spm-anchor-id="a313x.7781069.0.i36" class="selected"></path>
+                        <path d="M842.666667 213.333333m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z" fill="#043468" p-id="11066" data-spm-anchor-id="a313x.7781069.0.i35" class="selected"></path>
+                        <path d="M202.666667 853.333333m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z" fill="#043468" p-id="11067" data-spm-anchor-id="a313x.7781069.0.i31" class="selected"></path>
+                        <path d="M522.666667 853.333333m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z" fill="#043468" p-id="11068" data-spm-anchor-id="a313x.7781069.0.i30" class="selected"></path>
+                        <path d="M842.666667 853.333333m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z" fill="#043468" p-id="11069" data-spm-anchor-id="a313x.7781069.0.i33" class="selected"></path>
+                        <path d="M96 533.333333m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z" fill="#043468" p-id="11070" data-spm-anchor-id="a313x.7781069.0.i32" class="selected"></path>
+                        <path d="M949.333333 533.333333m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z" fill="#043468" p-id="11071" data-spm-anchor-id="a313x.7781069.0.i34" class="selected"></path>
+                        <path d="M657.066667 364.8c-55.466667 0-102.4 27.733333-132.266667 68.266667-29.866667-40.533333-78.933333-68.266667-132.266667-68.266667-91.733333 0-164.266667 74.666667-164.266666 164.266667s74.666667 164.266667 164.266666 164.266666c55.466667 0 102.4-27.733333 132.266667-68.266666 29.866667 40.533333 78.933333 68.266667 132.266667 68.266666 91.733333 0 164.266667-74.666667 164.266666-164.266666s-74.666667-164.266667-164.266666-164.266667zM390.4 629.333333c-55.466667 0-100.266667-44.8-100.266667-100.266666s44.8-100.266667 100.266667-100.266667 100.266667 44.8 100.266667 100.266667-44.8 100.266667-100.266667 100.266666z m266.666667 0c-55.466667 0-100.266667-44.8-100.266667-100.266666s44.8-100.266667 100.266667-100.266667 100.266667 44.8 100.266666 100.266667-44.8 100.266667-100.266666 100.266666z" fill="#043468" p-id="11072" data-spm-anchor-id="a313x.7781069.0.i29" class="selected"></path>
+                    </svg>
+                    <span id="wea_pm">空气质量:<%=data[0].air%> <%=data[0].air_level%></span>&nbsp;&nbsp;&nbsp;
+                    <svg t="1551525727752" class="icon" style="color:#043468; vertical-align: sub;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3408" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20">
+                        <defs>
+                            <style type="text/css"></style>
+                        </defs>
+                        <path d="M780.6 461.6l0.7 0.3-244.2-397-244.1 397 0.7-0.5C253.2 513.6 229 578.8 229 649.8c0 170.2 138 308.1 308.1 308.1 170.2 0 308.1-138 308.1-308.1 0-71-24.3-136.1-64.6-188.2zM537.1 885.8c-130.3 0-235.9-105.7-235.9-235.9 0-64.8 26.1-123.3 68.4-165.9h-0.1l148.7-229.6 18.8-30.5 33.1 58.4 125.1 193C742.9 518.5 773 580.6 773 650c0 130.1-105.7 235.8-235.9 235.8z m0 0" fill="#043468" p-id="3409"></path>
+                        <path d="M499.1 624.3c10-11.2 15-25.9 15-43.9 0-18.1-4.5-32.2-13.6-42.4-9.1-10.2-21.8-15.2-38-15.2-17 0-30.4 5.5-40.4 16.5s-15 25.9-15 44.6c0 17.2 4.7 31.1 14.2 41.5 9.5 10.4 22.1 15.7 37.8 15.7 16.7 0.1 29.9-5.6 40-16.8z m-61-12.4c-5.5-6.9-8.3-16.6-8.3-29.3 0-12.9 2.9-23 8.5-30.1 5.7-7.3 13.4-10.9 23.1-10.9 9.6 0 17 3.5 22.2 10.4 5.3 6.9 7.9 16.7 7.9 29.4 0 13.1-2.7 23.1-8.1 30.1-5.3 7.2-12.9 10.7-22.9 10.7-9.3 0-16.9-3.4-22.4-10.3z m161.2 27.9c-16.9 0-30.3 5.5-40.2 16.7-10 11.2-15 26.1-15 44.8 0 17 4.7 30.7 14.1 41.2 9.4 10.6 22.1 15.8 37.9 15.8 16.4 0 29.6-5.5 39.7-16.7 10.2-11.2 15.2-25.7 15.2-43.7 0-18.5-4.6-32.8-13.7-43.1-9.1-9.9-21.8-15-38-15z m21.2 88.9c-5.3 7.2-12.9 10.7-22.9 10.7-9.6 0-17.1-3.5-22.6-10.4s-8.3-16.6-8.3-29c0-12.9 2.8-23 8.3-30.1 5.5-7.3 13.3-10.9 23.3-10.9 9.4 0 16.7 3.4 22.1 10.2 5.3 6.8 8.1 16.6 8.1 29.3-0.1 13-2.7 23-8 30.2z m-31.3-202.4L442.3 756.4H467l146.9-230.2h-24.7z m0 0" fill="#043468" p-id="3410"></path>
+                    </svg>
+                    <span id="wea_humidity">相对湿度: <%=data[0].humidity%>%</span>&nbsp;&nbsp;&nbsp;
+                </div>
+                <%if(data[0].alarm==undefined){%>
+                <div id="wea_tips" style="padding-right: 200px;"><strong><%=data[0].alarm.alarm_level%></strong>预警:<%=data[0].alarm.alarm_content%></div>
+                <%}else{%>
+                <div id="wea_tips" style="padding-right:200px;"><%=data[0].air_tips%></div>
+                    <%}%>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="card">
+        <div class="card-body" style="padding: 0;">
+            <table class="table notable">
+                <tbody><tr id="day7"><td><p><%=data[0].day%></p><p><img height="30" src="http://cddn.huyahaha.com/tianqiapi/skin/cake/<%=data[0].wea_img%>.png"></p><p style="font-size: 16px;"><%=data[0].wea%></p><p style="font-size: 16px;"><%=data[0].tem1%>/<%=data[0].tem2%></p><p style="font-size: 16px;"><%=data[0].win%></p><p>&lt;<%=data[0].win_speed%></p></td><td><p><%=data[1].day%></p><p><img height="30" src="http://cddn.huyahaha.com/tianqiapi/skin/cake/<%=data[1].wea_img%>.png"></p><p style="font-size: 16px;"><%=data[1].wea%></p><p style="font-size: 16px;"><%=data[1].tem1%>/<%=data[1].tem2%></p><p style="font-size: 16px;"><%=data[1].win%></p><p>&lt;<%=data[1].win_speed%></p></td><td><p><%=data[2].day%></p><p><img height="30" src="http://cddn.huyahaha.com/tianqiapi/skin/cake/<%=data[2].wea_img%>.png"></p><p style="font-size: 16px;"><%=data[2].wea%></p><p style="font-size: 16px;"><%=data[2].tem1%>/<%=data[2].tem2%></p><p style="font-size: 16px;"><%=data[2].win%></p><p>&lt;<%=data[2].win_speed%></p></td><td><p><%=data[3].day%></p><p><img height="30" src="http://cddn.huyahaha.com/tianqiapi/skin/cake/<%=data[3].wea_img%>.png"></p><p style="font-size: 16px;"><%=data[3].wea%></p><p style="font-size: 16px;"><%=data[3].tem1%>/<%=data[3].tem2%></p><p style="font-size: 16px;"><%=data[3].win%></p><p>&lt;<%=data[3].win_speed%></p></td><td><p><%=data[4].day%></p><p><img height="30" src="http://cddn.huyahaha.com/tianqiapi/skin/cake/<%=data[4].wea_img%>.png"></p><p style="font-size: 16px;"><%=data[4].wea%></p><p style="font-size: 16px;"><%=data[4].tem1%>/<%=data[4].tem2%></p><p style="font-size: 16px;"><%=data[4].win%></p><p>&lt;<%=data[4].win_speed%></p></td><td><p><%=data[5].day%></p><p><img height="30" src="http://cddn.huyahaha.com/tianqiapi/skin/cake/<%=data[5].wea_img%>.png"></p><p style="font-size: 16px;"><%=data[5].wea%></p><p style="font-size: 16px;"><%=data[5].tem1%>/<%=data[5].tem2%></p><p style="font-size: 16px;"><%=data[5].win%></p><p>&lt;<%=data[5].win_speed%></p></td><td><p><%=data[6].day%></p><p><img height="30" src="http://cddn.huyahaha.com/tianqiapi/skin/cake/<%=data[6].wea_img%>.png"></p><p style="font-size: 16px;"><%=data[6].wea%></p><p style="font-size: 16px;"><%=data[6].tem1%>/<%=data[6].tem2%></p><p style="font-size: 16px;"><%=data[6].win%></p><p>&lt;<%=data[6].win_speed%></p></td></tr>
+                </tbody></table>
+           </div>
+    </div>
+
+
+         <form action="" method="get" style="position:absolute;right:25%;">
+         查询的城市：<input type="text" placeholder="输入的城市不要带市和区，如青岛，微山" name="city"/><input type="submit" value="查询">
+         </form>
+
+
+</div>
+</body>
+</html>
